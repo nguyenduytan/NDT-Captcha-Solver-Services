@@ -1,0 +1,16 @@
+{
+  "name": "NDT-Captcha-Solver-Services",
+  "description": "CAPTCHA solver services compared by challenge type, billing unit and cost, plus testing resources and defensive CAPTCHA tools.",
+  "topics": [
+    "captcha",
+    "captcha-solver",
+    "recaptcha",
+    "turnstile",
+    "captcha-services",
+    "test-automation",
+    "accessibility",
+    "awesome-list",
+    "vietnamese"
+  ],
+  "private": false
+}
