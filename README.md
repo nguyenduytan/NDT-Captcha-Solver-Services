@@ -1,102 +1,99 @@
 <div align="center">
 
 <h1>🧩 NDT Captcha Solver Services</h1>
+<p><a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square"></a> <img alt="Pricing review date" src="https://img.shields.io/badge/Price_review-2026--10--27-2563eb?style=flat-square"></p>
 
-**So sánh API giải CAPTCHA, AI solver, human-in-the-loop, công cụ scoring và thư viện defensive CAPTCHA.**
 
-[![Pricing research date](https://img.shields.io/badge/Price_review-27%20Oct%202026-d97706?style=for-the-badge)](https://github.com/nguyenduytan)
-[![Direct links](https://img.shields.io/badge/links-direct%20%7C%20no%20affiliate-16a34a?style=for-the-badge)](#methodology)
-[![License](https://img.shields.io/badge/license-MIT-64748b?style=for-the-badge)](LICENSE)
+**CAPTCHA solver APIs, AI services, human-in-the-loop providers, scoring tools and defensive CAPTCHA resources.**
 
-**[Solver comparison](#solver-comparison) · [By challenge](#choose-by-challenge) · [Scoring](#detection-and-scoring) · [Build CAPTCHA](#if-you-are-building-a-captcha)**
+[![Language](https://img.shields.io/badge/language-English-d97706?style=for-the-badge)](README.md) [![Tiếng Việt](https://img.shields.io/badge/README-Ti%E1%BA%BFng%20Vi%E1%BB%87t-16a34a?style=for-the-badge)](README.vi.md) [![Direct links](https://img.shields.io/badge/links-direct%20%7C%20no%20affiliate-16a34a?style=for-the-badge)](#methodology)
+
+**[Comparison](#solver-comparison) · [By challenge](#choose-by-challenge) · [Scoring](#detection-and-scoring) · [Defensive CAPTCHA](#if-you-are-building-a-captcha)**
 
 </div>
 
 > [!IMPORTANT]
-> Chỉ dùng dịch vụ cho QA, accessibility, internal testing và automation hợp pháp. Không dùng để bypass đăng nhập, tạo account giả, gian lận hoặc truy cập hệ thống không được phép.
+> Use solver services only for authorized QA, accessibility, internal testing and lawful automation. Do not use them to bypass authentication, create fake accounts or defeat security controls.
 
 ## Quick picks
 
-| Nhu cầu | Shortlist | Vì sao |
+| Need | Start with | Why |
 |---|---|---|
-| OCR/image giá thấp | [10Captcha](https://10captcha.com/), [AZcaptcha](https://azcaptcha.com/), [SolveCaptcha](https://solvecaptcha.com/) | Giá per-1K thấp, API đơn giản |
-| Coverage rộng | [2Captcha](https://2captcha.com/), [Anti-Captcha](https://anti-captcha.com/), [CapSolver](https://www.capsolver.com/) | Nhiều loại challenge và integration |
-| AI subscription | [CaptchaAI](https://captchaai.com/), [NopeCHA](https://nopecha.com/pricing) | Tính theo thread/ngày/tháng |
-| Defensive CAPTCHA | [reCAPTCHA](https://www.google.com/recaptcha/about/), [Turnstile](https://www.cloudflare.com/products/turnstile/), [hCaptcha](https://www.hcaptcha.com/) | Dùng để bảo vệ ứng dụng và test integration |
+| Low-cost OCR/image | [10Captcha](https://10captcha.com/), [AZcaptcha](https://azcaptcha.com/), [SolveCaptcha](https://solvecaptcha.com/) | Low public per-1K rates and simple APIs |
+| Broad challenge coverage | [2Captcha](https://2captcha.com/), [Anti-Captcha](https://anti-captcha.com/), [CapSolver](https://www.capsolver.com/) | Large catalogs and integrations |
+| AI subscription | [CaptchaAI](https://captchaai.com/), [NopeCHA](https://nopecha.com/pricing) | Thread/day/month plans |
+| Build a defense | [reCAPTCHA](https://www.google.com/recaptcha/about/), [Turnstile](https://www.cloudflare.com/products/turnstile/), [hCaptcha](https://www.hcaptcha.com/) | Defensive products and test environments |
 
+<a id="solver-comparison"></a>
 ## Solver comparison
 
-Giá ghi theo **1,000 successful solves/tokens** nếu provider dùng đơn vị này. Subscription, thread và image không được quy đổi giả thành per-1K.
+Prices remain in the provider's own unit. Image recognition, tokens, successful solves, threads and monthly subscriptions are not interchangeable.
 
-| Service | Model | Giá công khai mẫu | Coverage / integration | Phân tích |
+| Service | Model | Public price example | Coverage / integration | Buying read |
 |---|---|---:|---|---|
-| [10Captcha](https://10captcha.com/) | AI, pay per solve | Image $0.10/1K; v2 $0.25; v3 $0.30 | REST API, 300+ integrations | Mức giá công bố thấp trong bảng; FunCaptcha/GeeTest còn ghi coming soon |
-| [AZcaptcha](https://azcaptcha.com/pricing) | Automated API | Image $0.40; v2 $1; Turnstile $1.20 | REST, webhook, Python/PHP/Node | Chỉ charge successful solve; minimum top-up $5 |
-| [SolveCaptcha](https://solvecaptcha.com/) | Automated | Image $0.35; v2 $0.55; Turnstile $0.80 | API, extension, Selenium, Puppeteer | Giá công bố thấp; tốc độ và acceptance cần đo thực tế |
-| [CapSolver](https://docs.capsolver.com/en/pricing/) | AI/automated | v2 $0.80; v3 $1; Turnstile $1.20; image $0.40 | API, SDK, extension, Playwright, MCP | Có SDK/integration; kiểm tra đúng task type và giá dashboard |
-| [CapMonster Cloud](https://capmonster.cloud/en/) | AI | v2 $0.60/1K tokens; Turnstile $1.30; text $0.30/1K; reCAPTCHA classification $0.04/1K images | JSON API, C#, Python, JS, Go, PHP | Classification ảnh reCAPTCHA không phải OCR hoặc token hoàn chỉnh |
-| [Anti-Captcha](https://anti-captcha.com/) | Workforce/API | Image $0.50–0.70; v2 $0.95–2; Turnstile $2 | API, plugin, nhiều ngôn ngữ | Dịch vụ lâu năm, coverage rộng; giá phụ thuộc tải |
-| [2Captcha](https://2captcha.com/pricing) | Human workforce + API | Image £0.45–0.89; v2 £0.80–2.45; Arkose £1.20–41 | SDK, browser automation, nhiều challenge | Có danh mục challenge rộng; Arkose rất biến động giá |
-| [CaptchaAI](https://captchaai.com/) | AI subscription | $15/tháng/5 threads; $30/15; $90/50 | API, Chrome extension, image catalog | Hợp volume đều; giới hạn chính là thread |
-| [NopeCHA](https://nopecha.com/pricing) | AI subscription | $4.99/tháng/2,000 solves/ngày; $19.99/20,000 | Chrome/Firefox, Python, JS | Tốt cho browser testing; so daily cap và concurrency |
-| [EZCaptcha](https://www.ez-captcha.com/) | AI | v2 $0.60; Turnstile $1; hCaptcha $3 | API, developer plan | Nhiều task; revenue share developer không phải giá khách hàng |
-| [EndCaptcha](https://endcaptcha.com/) | Workforce | Giá live; quảng cáo SLA 7 giây | API, extension, quality/outage insurance | Hợp nơi latency predictable quan trọng hơn giá thấp |
-| [Death By Captcha](https://deathbycaptcha.com/) | Workforce/automated | Giá live qua dashboard | API và libraries lâu năm | Lấy quote mới theo task trước khi benchmark |
+| [10Captcha](https://10captcha.com/) | AI, pay per solve | Image $0.10/1K; v2 $0.25; v3 $0.30 | REST API and 300+ integrations | Low public price for listed types; FunCaptcha/GeeTest shown as coming soon |
+| [AZcaptcha](https://azcaptcha.com/pricing) | Automated API | Image $0.40; v2 $1; Turnstile $1.20 | REST, webhooks, Python/PHP/Node | Charges successful solves; $5 minimum top-up |
+| [SolveCaptcha](https://solvecaptcha.com/) | Automated | Image $0.35; v2 $0.55; Turnstile $0.80 | API, extension, Selenium, Puppeteer | Measure acceptance and speed in your own flow |
+| [CapSolver](https://docs.capsolver.com/en/pricing/) | AI/automated | v2 $0.80; v3 $1; Turnstile $1.20; image $0.40 | API, SDKs, extension, Playwright, MCP | Confirm exact task type and dashboard price |
+| [CapMonster Cloud](https://capmonster.cloud/en/) | AI | v2 $0.60/1K tokens; Turnstile $1.30; text $0.30/1K; classification $0.04/1K images | JSON API, C#, Python, JS, Go, PHP | Image classification is not a full token solve |
+| [Anti-Captcha](https://anti-captcha.com/) | Workforce/API | Image $0.50–0.70; v2 $0.95–2; Turnstile $2 | API and many languages | Established coverage; load affects price and latency |
+| [2Captcha](https://2captcha.com/pricing) | Human workforce + API | Image £0.45–0.89; v2 £0.80–2.45; Arkose £1.20–41 | SDKs, browser automation and broad catalog | Prices are shown in GBP on the reviewed page; do not compare directly with USD |
+| [CaptchaAI](https://captchaai.com/) | AI subscription | $15/month/5 threads; $30/15; $90/50 | API, Chrome extension | Subscription can win at sustained volume; thread count is the limit |
+| [NopeCHA](https://nopecha.com/pricing) | AI subscription | $4.99/month/2,000 solves/day; $19.99/20,000 | Chrome/Firefox, Python, JS | Compare daily cap and concurrency |
+| [EZCaptcha](https://www.ez-captcha.com/) | AI | v2 $0.60; Turnstile $1; hCaptcha $3 | API and developer plan | Verify current task list and billing |
+| [EndCaptcha](https://endcaptcha.com/) | Workforce | Live pricing; advertises 7-second SLA | API and extension | Consider predictable latency over lowest price |
+| [Death By Captcha](https://deathbycaptcha.com/) | Workforce/automated | Live dashboard pricing | API and libraries | Obtain a current quote for the exact task |
 
-### Mâu thuẫn nguồn và giới hạn
+### Pricing conditions and limitations
 
-- CapSolver: bảng giá chuyên biệt được ưu tiên hơn homepage docs vì hai trang hiển thị giá khác nhau. Kiểm tra dashboard trước nạp.
-- 2Captcha: nguồn đọc được đang hiển thị **GBP (£)**. Bảng giữ nguyên tiền tệ; không so trực tiếp con số này với USD và không tự quy đổi.
-- CapMonster: $0.04 cho nhận diện ảnh reCAPTCHA khác $0.60 cho token v2 đầy đủ; text CAPTCHA là $0.30/1K.
-- Các thông số tốc độ/success trên website là vendor claims; bảng không xếp hạng chất lượng khi chưa benchmark.
+- CapSolver's dedicated pricing page is used because its documentation homepage shows different prices. Confirm the dashboard rate before topping up.
+- 2Captcha values remain in GBP; no currency conversion is implied.
+- CapMonster's $0.04 image classification rate differs from $0.60 for a complete v2 token; text CAPTCHA is $0.30/1K.
+- Speed and success figures advertised by vendors are not independent measurements.
 
-### Danh bạ mở rộng và mục chưa xác minh
+### Additional services awaiting verification
 
-| Service | Link trực tiếp | Trạng thái nghiên cứu |
+| Service | Direct link | Review status |
 |---|---|---|
-| BestCaptchaSolver | [Website](https://bestcaptchasolver.com/) | Đã mở website; chưa chốt bảng giá từng challenge |
-| CapGuru | [Website](https://cap.guru/en/) | Nguồn bị chặn truy cập; không dùng giá cũ |
-| HardCaptcha | [Website](https://hardcaptcha.com/) | Không đọc được nguồn; chưa xác minh tình trạng |
-| MetaBypass | [Website](https://metabypass.tech/) | Lần đọc bị chuyển hướng bất thường; không đưa vào shortlist |
-| CapCat | [Website](https://capcat.one/) | Ứng viên nghiên cứu; chưa xác minh giá/tính năng |
-| Captcha.run | [Website](https://captcha.run/) | Ứng viên nghiên cứu; chưa xác minh giá/tính năng |
+| BestCaptchaSolver | [Website](https://bestcaptchasolver.com/) | Website opened; per-challenge pricing not finalized |
+| CapGuru | [Website](https://cap.guru/en/) | Page access blocked; do not reuse historical prices |
+| HardCaptcha | [Website](https://hardcaptcha.com/) | Page unavailable during review; current status unverified |
+| MetaBypass | [Website](https://metabypass.tech/) | Unexpected redirect during review; not shortlisted |
+| CapCat | [Website](https://capcat.one/) | Research candidate; pricing/features unverified |
+| Captcha.run | [Website](https://captcha.run/) | Research candidate; pricing/features unverified |
 
-Danh sách bao phủ các dịch vụ được khảo sát, không khẳng định liệt kê toàn bộ thị trường. Lỗi đọc trang không tự chứng minh dịch vụ đã ngừng hoạt động.
+This directory covers the services reviewed, not the entire market. A failed page request does not establish that a business has closed.
 
+<a id="choose-by-challenge"></a>
 ## Choose by challenge
 
-| Challenge | Nên thử trước | Biến số chính |
+| Challenge | Candidates | Main variables |
 |---|---|---|
-| Image/text OCR | 10Captcha, CapMonster, AZcaptcha, SolveCaptcha | Chất lượng ảnh, ngôn ngữ, distortion, retry |
-| reCAPTCHA v2 | CapSolver, SolveCaptcha, Anti-Captcha, 2Captcha | Site key, proxy/geo, browser context |
-| reCAPTCHA v3 | CapSolver, EZCaptcha, 2Captcha, CaptchaAI | Score, action, IP reputation, browser |
-| Enterprise | CapSolver, AZcaptcha, Anti-Captcha, 2Captcha | Task type và session cùng IP/browser |
-| Turnstile | CapSolver, AZcaptcha, SolveCaptcha, Anti-Captcha | Managed/non-interactive, site key, proxy |
-| Arkose/FunCaptcha | EZCaptcha, Anti-Captcha, 2Captcha | Giá biến động lớn; test case được phép |
-| GeeTest | CapSolver, Anti-Captcha, 2Captcha | Version, challenge mode, locale |
-| Amazon WAF | CapSolver, Anti-Captcha, AZcaptcha | WAF variant và browser context |
-| hCaptcha | EZCaptcha; provider khác cần xác nhận docs hiện hành | Enterprise/standard, image task, reputation |
-| ALTCHA | Anti-Captcha, AZcaptcha, 2Captcha | Widget version và proof-of-work |
+| Image/text OCR | 10Captcha, CapMonster, AZcaptcha, SolveCaptcha | Image quality, language, distortion, retries |
+| reCAPTCHA v2 | CapSolver, SolveCaptcha, Anti-Captcha, 2Captcha | Site key, proxy/geo and browser context |
+| reCAPTCHA v3 | CapSolver, EZCaptcha, 2Captcha, CaptchaAI | Score, action, IP reputation and browser |
+| Enterprise | CapSolver, AZcaptcha, Anti-Captcha, 2Captcha | Task type and same session context |
+| Turnstile | CapSolver, AZcaptcha, SolveCaptcha, Anti-Captcha | Managed/non-interactive mode and proxy |
+| Arkose/FunCaptcha | EZCaptcha, Anti-Captcha, 2Captcha | Large price variation; test only authorized cases |
+| GeeTest | CapSolver, Anti-Captcha, 2Captcha | Version, mode and locale |
+| Amazon WAF | CapSolver, Anti-Captcha, AZcaptcha | WAF variant and browser context |
+| hCaptcha | EZCaptcha and providers with current docs | Enterprise/standard mode and reputation |
+| ALTCHA | Anti-Captcha, AZcaptcha, 2Captcha | Widget version and proof-of-work |
 
 ## Cost analysis
 
 ```text
-chi phí / 1.000 workflow hợp lệ
-= (solver + proxy + compute + retry + phí bắt buộc) / workflow hợp lệ × 1.000
+cost per 1,000 accepted workflows
+= (solver + proxy + compute + retry cost) / accepted workflows × 1,000
 ```
 
-- **Per-solve API** phù hợp volume không đều và task đã biết.
-- **Subscription** chỉ rẻ khi dùng đủ thread/daily capacity; unused plan là chi phí thật.
-- **Human service** xử lý task lạ tốt hơn nhưng có queue, tốc độ và biến động chất lượng.
-- **AI service** nhanh/rẻ ở task phổ biến nhưng có thể yếu ở một version cụ thể.
-- **Proxyless** không luôn tốt: nếu app bind challenge vào IP/session, solver phải dùng cùng context được phép.
-- Kiểm tra failed task có bị charge không; nhiều service chỉ refund theo policy hoặc support.
+Per-solve APIs suit irregular volume. Subscriptions only win when the included threads or daily capacity are actually used. Human services may handle unusual tasks but have queue and quality variability. AI services can be fast and cheap for common tasks while failing on a particular version.
 
-### Ví dụ tính giá và chọn subscription
+Example: 100,000 v2 tokens at $0.60/1K costs $60. If only 80,000 workflows are accepted, solver cost is $0.75 per 1K accepted workflows before proxy and compute costs. This is a calculation example, not a benchmark.
 
-Giả sử 100,000 token v2 đều bị tính phí: rate $0.60/1K cho hóa đơn $60. Nếu chỉ 80,000 workflow được ứng dụng chấp nhận, solver cost hiệu dụng là $0.75/1K workflow, chưa cộng proxy/compute. Đây là phép tính giả định, không phải số liệu đo.
+The nominal break-even point between CaptchaAI at $15/month and an API at $0.60/1K is 25,000 tasks/month, only if task type, acceptance and throughput are comparable. NopeCHA's daily allowance cannot be pooled into a single day's run.
 
-CaptchaAI $15/tháng so với API $0.60/1K có điểm hòa vốn danh nghĩa 25,000 task/tháng, **chỉ khi** cùng loại task, tỷ lệ chấp nhận và năng lực xử lý đáp ứng. NopeCHA giới hạn theo ngày nên không được gộp quota 30 ngày để chạy hết trong một ngày. Không thể dùng giá nhận diện ảnh để tính token đầy đủ.
+Proxyless tasks are not always appropriate when an application binds a challenge to an IP/session. Check whether failures are billable and how refund requests work.
 
 ## Detection and scoring
 
@@ -104,46 +101,44 @@ CaptchaAI $15/tháng so với API $0.60/1K có điểm hòa vốn danh nghĩa 25
 - [Google reCAPTCHA v3 demo](https://recaptcha-demo.appspot.com/recaptcha-v3-request-scores.php)
 - [AntCPT score detector](https://antcpt.com/score_detector/)
 - [2Captcha demos](https://2captcha.com/demo)
-- [BrowserLeaks](https://browserleaks.com/)
-- [CreepJS](https://abrahamjuliot.github.io/creepjs/)
-- [Fingerprint Playground](https://demo.fingerprint.com/playground)
+- [BrowserLeaks](https://browserleaks.com/), [CreepJS](https://abrahamjuliot.github.io/creepjs/), [Fingerprint Playground](https://demo.fingerprint.com/playground)
 
-Khi test, ghi challenge type, site key class, browser/version, proxy country/ASN, solve time, callback, accepted/rejected và chi phí. Token trả về không đồng nghĩa workflow end-to-end thành công.
+For authorized QA, record challenge type, browser/version, proxy country/ASN, solve time, callback, server verification, acceptance and cost. A returned token is not proof that the end-to-end workflow succeeded.
 
-### QA trên hệ thống mình sở hữu
+### QA for applications you own
 
-Ưu tiên test keys / sandbox do nhà cung cấp CAPTCHA cung cấp để kiểm thử integration ổn định. Tách test thành tạo challenge, callback, xác minh phía server, token hết hạn và từ chối token sai. Xem [Turnstile testing](https://developers.cloudflare.com/turnstile/troubleshooting/testing/), [reCAPTCHA docs](https://developers.google.com/recaptcha) và [hCaptcha docs](https://docs.hcaptcha.com/). Không gửi API key, cookie hoặc dữ liệu người dùng vào log benchmark công khai.
+Prefer official test keys or sandbox modes for reproducible integration tests. Cover challenge creation, callback, server-side verification, expiry and invalid-token rejection. See [Turnstile testing](https://developers.cloudflare.com/turnstile/troubleshooting/testing/), [reCAPTCHA docs](https://developers.google.com/recaptcha) and [hCaptcha docs](https://docs.hcaptcha.com/). Never publish API keys, cookies or user data in benchmark logs.
 
+<a id="if-you-are-building-a-captcha"></a>
 ## If you are building a CAPTCHA
 
-| Product | Vị trí | Phân tích |
+| Product | Position | Evaluation |
 |---|---|---|
-| [Google reCAPTCHA](https://www.google.com/recaptcha/about/) | Ecosystem rộng | Dễ tích hợp; cân nhắc privacy và score |
-| [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) | Low-friction managed challenge | Widget miễn phí, tích hợp Cloudflare |
-| [hCaptcha](https://www.hcaptcha.com/) | Managed bot/fraud controls | Có Pro và Enterprise |
-| [Friendly Captcha](https://friendlycaptcha.com/) | Proof-of-work | Giảm image puzzle |
-| [ALTCHA](https://altcha.org/) | Open-source/self-hosted | Hợp self-host/GDPR-sensitive |
-| [Private Captcha](https://github.com/PrivateCaptcha/PrivateCaptcha) | Open-source | Proof-of-work self-host |
-| [Arkose Labs](https://www.arkoselabs.com/) | Risk-based enterprise | Tập trung fraud/abuse prevention |
+| [Google reCAPTCHA](https://www.google.com/recaptcha/about/) | Broad ecosystem | Integration, privacy and score behavior |
+| [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) | Low-friction managed challenge | Widget model and Cloudflare integration |
+| [hCaptcha](https://www.hcaptcha.com/) | Managed bot/fraud controls | Pro, enterprise and accessibility |
+| [Friendly Captcha](https://friendlycaptcha.com/) | Proof-of-work | Reduces image puzzles |
+| [ALTCHA](https://altcha.org/) | Open-source/self-hosted | Useful for self-host and privacy-sensitive apps |
+| [Private Captcha](https://github.com/PrivateCaptcha/PrivateCaptcha) | Open-source | Self-hosted proof-of-work |
+| [Arkose Labs](https://www.arkoselabs.com/) | Risk-based enterprise | Fraud and abuse prevention |
 
-## Libraries and docs
+## Libraries and documentation
 
 - [2Captcha SDKs](https://github.com/2captcha), [CapSolver docs](https://docs.capsolver.com/en/), [CapMonster docs](https://docs.capmonster.cloud/)
 - [reCAPTCHA docs](https://developers.google.com/recaptcha), [Turnstile docs](https://developers.cloudflare.com/turnstile/), [hCaptcha docs](https://docs.hcaptcha.com/)
 - [Friendly Captcha integrations](https://friendlycaptcha.com/integrations/), [ALTCHA docs](https://altcha.org/docs/), [PrivateCaptcha](https://github.com/PrivateCaptcha/PrivateCaptcha)
 - [svg-captcha](https://github.com/produck/svg-captcha), [Captcha for Laravel](https://github.com/mewebstudio/captcha), [Gregwar Captcha](https://github.com/Gregwar/Captcha)
 
-## Methodology
+<a id="methodology"></a>
+## Notes and contributions
 
-**Phạm vi:** Đây là khảo sát tài liệu công khai, chưa chạy benchmark hoặc mua thử toàn bộ dịch vụ. Danh bạ mở rộng chưa chốt giá/tình trạng bảo trì. Không có nhà cung cấp tốt nhất cho mọi workload. Xem [nguồn](SOURCES.md) và [cách đóng góp](CONTRIBUTING.md).
+Prices were checked on 2026-10-27 and are not quotes. Provider links are direct and contain no affiliate parameters. Vendor uptime and success claims are not independent benchmarks. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Related NDT projects
 
-Direct provider URLs only; referral/affiliate parameters removed. Prices checked 2026-10-27. Vendor success/uptime claims are not independent benchmark results. Nội dung lấy cảm hứng từ [TheGP/Everything-About-Captchas](https://github.com/TheGP/Everything-About-Captchas) nhưng được biên tập lại theo unit và điều kiện giá.
-
-## Related NDT lists
-
+- [NDT Proxy Scraper](https://github.com/nguyenduytan/NDT-Proxy-Scraper)
 - [NDT Proxy Providers List](https://github.com/nguyenduytan/NDT-Proxy-Providers-List)
 - [NDT Antidetect Tools](https://github.com/nguyenduytan/NDT-Antidetect-Tools)
 
 > [!WARNING]
-> Chỉ dùng cho authorized QA, accessibility, fraud-prevention testing và internal automation. Không dùng để bypass security controls.
+> Use these services only for lawful, authorized QA, accessibility, fraud-prevention testing and internal automation.
